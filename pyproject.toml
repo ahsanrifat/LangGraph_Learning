@@ -8,8 +8,8 @@ dependencies = [
     "ipykernel>=6.29.5",
     "langchain-google-genai>=2.1.5",
     "langchain-google-vertexai>=2.0.24",
+    "langchain-aws>=0.2.35",
     "langchain[anthropic]>=0.3.25",
     "langgraph>=0.4.8",
-    "pygraphviz",
     "python-dotenv>=1.1.0",
 ]
