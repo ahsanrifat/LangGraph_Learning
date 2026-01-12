@@ -1,0 +1,47 @@
+-- Filter DRC for usergroup
+SELECT DISTINCT
+    (
+SELECT COUNT(*) as TotalCount
+FROM
+(SELECT 1 as totalCount
+FROM "BUS_USERGROUP_MODULE"
+------DataSecurityOrJoinToPrdMasterSection------
+
+------DataSecurityOrJoinToPrdMasterSection------
+WHERE "BUS_USERGROUP_MODULE"."BUS_MODULE_CODE" in (@MODULE)
+GROUP BY "BUS_USERGROUP_MODULE"."BUS_USERGROUP_CODE",
+ "BUS_USERGROUP_MODULE"."BUS_USERGROUP_TEXTCODE"
+) as GroupCount) AS "TotalCount",
+    "BUS_USERGROUP_MODULE"."BUS_USERGROUP_CODE" AS "Code",
+    "BUS_USERGROUP_MODULE"."BUS_USERGROUP_TEXTCODE" AS "OriginalText",
+    "BUS_USERGROUP_MODULE"."BUS_USERGROUP_TEXTCODE" AS "Text"
+FROM "BUS_USERGROUP_MODULE"
+------DataSecurityOrJoinToPrdMasterSection------
+
+------DataSecurityOrJoinToPrdMasterSection------
+WHERE "BUS_USERGROUP_MODULE"."BUS_MODULE_CODE" in (@MODULE)
+GROUP BY "BUS_USERGROUP_MODULE"."BUS_USERGROUP_CODE","BUS_USERGROUP_MODULE"."BUS_USERGROUP_TEXTCODE";
+
+-- Filter DRC for module 
+SELECT DISTINCT
+    (
+SELECT COUNT(*) as TotalCount
+FROM
+(SELECT 1 as totalCount
+FROM "BUS_USERGROUP_MODULE"
+------DataSecurityOrJoinToPrdMasterSection------
+
+------DataSecurityOrJoinToPrdMasterSection------
+
+GROUP BY "BUS_USERGROUP_MODULE"."BUS_MODULE_CODE",
+ "BUS_USERGROUP_MODULE"."BUS_MODULE_TEXTCODE"
+) as GroupCount) AS "TotalCount",
+    "BUS_USERGROUP_MODULE"."BUS_MODULE_CODE" AS "Code",
+    "BUS_USERGROUP_MODULE"."BUS_MODULE_TEXTCODE" AS "OriginalText",
+    "BUS_USERGROUP_MODULE"."BUS_MODULE_TEXTCODE" AS "Text"
+FROM "BUS_USERGROUP_MODULE"
+------DataSecurityOrJoinToPrdMasterSection------
+
+------DataSecurityOrJoinToPrdMasterSection------
+
+GROUP BY "BUS_USERGROUP_MODULE"."BUS_MODULE_CODE","BUS_USERGROUP_MODULE"."BUS_MODULE_TEXTCODE";
